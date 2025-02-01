@@ -20,8 +20,6 @@ const getProducts = async (category: string) => {
 const OrderPage = async ({ params }: { params: Promise<CategoryProps> }) => {
   const { category } = await params;
   const products = await getProducts(category);
-  console.log("los products", products);
-  console.log("el params", category);
   return (
     <>
       <h1 className="text-2xl my-10">
