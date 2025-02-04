@@ -13,7 +13,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Image
         src={`/products/${product.image}.jpg`}
         alt={`Imagen platillo ${product.name}`}
-        width={400}
+        width={600}
         height={500}
       />
       <div className="p-5">
