@@ -9,26 +9,38 @@ import { toast } from "react-toastify";
 
 const OrderSummary = () => {
   const order = useStore((state) => state.order);
+  const clearOrder = useStore((state) => state.clearOrder);
   const total = useMemo(
     () => order.reduce((total, item) => total + item.quantity * item.price, 0),
     [order]
   );
 
-  const handleCreateOrder = (formData: FormData) => {
+  const handleCreateOrder = async (formData: FormData) => {
     const data = {
       name: formData.get("name"),
+      total,
+      order,
     };
+
     const result = OrderSchema.safeParse(data);
+    console.log("el result", result);
+    /*
     if (!result.success) {
       result.error.issues.forEach((issue) => {
         toast.error(issue.message);
       });
+      return;
     }
-    console.log(result);
-    return;
-    console.log("desde handlecreateOrder");
-    console.log("formdata", formData.get("name"));
-    createOrder();
+    */
+
+    const response = await createOrder(data);
+    if (response?.errors) {
+      response.errors.forEach((issue) => {
+        toast.error(issue.message);
+      });
+    }
+    toast.success("pedido realizado correctamente");
+    clearOrder();
   };
   return (
     <aside className="lg:h-screen lg:overflow-y-auto md:w-64 lg:w-96 p-5 ">
