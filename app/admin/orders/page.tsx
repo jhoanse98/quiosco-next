@@ -20,7 +20,6 @@ const getPendingOrders = async () => {
 
 const page = async () => {
   const orders = await getPendingOrders();
-  console.log("las orders", orders);
   return (
     <>
       <Heading>Administra ordenes</Heading>
