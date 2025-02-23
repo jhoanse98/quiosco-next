@@ -16,7 +16,6 @@ const EditProductForm = ({ children }: { children: React.ReactNode }) => {
       categoryId: formData.get("categoryId"),
       image: formData.get("image"),
     };
-    console.log("la data", data);
     const result = ProductSchema.safeParse(data);
     if (!result.success) {
       result.error.issues.forEach((issue) => {

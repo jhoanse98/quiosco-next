@@ -11,7 +11,6 @@ const getCategory = async () => {
 };
 
 const ProductForm = async ({ product }: ProductFormType) => {
-  console.log("el product", product);
   const categories = await getCategory();
   return (
     <>

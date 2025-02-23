@@ -22,7 +22,6 @@ const getProductById = async (id: number) => {
 const EditProductsPage = async ({ params }: { params: { id: string } }) => {
   const response = await params;
   const product = await getProductById(+response.id);
-  console.log("el product desde edit", product);
   return (
     <>
       <Heading>Editar producto</Heading>

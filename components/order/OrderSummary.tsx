@@ -4,7 +4,6 @@ import ProductDetails from "./ProductDetails";
 import { useMemo } from "react";
 import { formatCurrency } from "@/src/utils";
 import { createOrder } from "@/actions/create-order-action";
-import { OrderSchema } from "@/src/schema";
 import { toast } from "react-toastify";
 
 const OrderSummary = () => {
@@ -21,17 +20,6 @@ const OrderSummary = () => {
       total,
       order,
     };
-
-    const result = OrderSchema.safeParse(data);
-    console.log("el result", result);
-    /*
-    if (!result.success) {
-      result.error.issues.forEach((issue) => {
-        toast.error(issue.message);
-      });
-      return;
-    }
-    */
 
     const response = await createOrder(data);
     if (response?.errors) {

@@ -8,7 +8,6 @@ type ProductPaginationProps = {
 
 const ProductPagination = ({ page, totalPages }: ProductPaginationProps) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-  console.log("pages", pages);
   return (
     <nav className="flex justify-center py-10">
       {page > 1 && (

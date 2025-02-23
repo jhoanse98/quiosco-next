@@ -26,7 +26,6 @@ const SearchPage = async ({
 }) => {
   const { search } = await searchParams;
   const products = await searchProducts(search!);
-  console.log("el response", products);
   return (
     <>
       <Heading>Resultados de búsqueda: {search}</Heading>
