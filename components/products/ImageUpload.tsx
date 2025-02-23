@@ -18,7 +18,7 @@ const ImageUpload = ({ image }: ImageUploadProps) => {
     <CldUploadWidget
       uploadPreset="zabstn7o"
       options={{ maxFiles: 1 }}
-      onSuccess={(result: CloudinaryUploadWidgetResults, { widget }) => {
+      onSuccess={(result: CloudinaryUploadWidgetResults) => {
         // @ts-expect-error type cloudinary
         setImageUrl(result.info.secure_url);
       }}
